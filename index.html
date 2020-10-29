@@ -2,16 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Steve's Library Late Fee and Pizza Share program</title>
+    <title>Steve's Library Late Fee and Pizza Share program (Now using jQuery)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="code.js"></script>
 
-    <h1>Library Late Fee and Pizza Share</h1>
-
+    <h1>Library Late Fee LAB-4 </h1>
 
 </head>
 <body>
+
+Do you have late:
+<div>
+    BOOKS <input type="radio" name="media"  value="1">
+    DVDS  <input type="radio" name="media" value="2">
+</div>
+
 <br>
-<button onclick="library()">Report your Library fees </button><br><br>
-<button onclick="pizza()">Calculate the sharing cost of pizza with co-workers </button>
+<label for="numberLateItems"> Number of late items</label>
+<input type="text" id="numberLateItems" maxlength="3" size="3" min="1"><br><br>
+<input id="submit" type="button" value="submit to determine fee">
+
+<p id="fee">Your fee is : </p>
+
+<br><br><br><br>
+
+<h1>Pizza Shared Cost LAB-4 </h1>
+
+<label for="numberToppings">Have many toppings would you like? </label>
+<input type="text" id="numberToppings" min="0" maxlength="3" size="3"><br><br>
+<label for="numberCoworkers">How many coworkers eating today?</label>
+<input type="text" id="numberCoworkers" min="2" maxlength="3" size="3"><br><br>
+<input id="submitPizza" type="button" value="submit to determine individual share">
+
+<p id="share">Your share is : </p>
+
 </body>
 </html>

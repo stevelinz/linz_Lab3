@@ -1,31 +1,38 @@
 
-function library() {
 
-    //ask if for books or dvds set to upper case to avoid wrong input
-    var type = prompt("Do you have late BOOKS or DVDS? ").toLocaleUpperCase();
+    var mediaFeeLateCost;
+    var numberOfItems;
+    var totalFee;
+    $(document).ready(function(){
+        $("#submit").on("click", function() {
+            var mediaType = $('input[name=media]:checked').val();
+            mediaType = parseInt(mediaType);
+            if (mediaType === 1) mediaFeeLateCost = .25;
+            else mediaFeeLateCost = .50;
+            numberOfItems = parseInt($('#numberLateItems').val());
+            totalFee = 0;
+            $("#submit").fadeOut(3000);
+            totalFee = numberOfItems * mediaFeeLateCost;
+            $("#fee").empty().append("$ " +(totalFee).toFixed(2));
+            $("#submit").fadeIn(3000);
+                })
+        });
 
-    //ask how many items are there and convert to int
-    var number = prompt("How many are there? ");
-    var numResponse = parseInt(number);
 
-    // display that this is your library fee
-    document.write("Your library fee is: $");
+    $(document).ready(function(){
+        $("#submitPizza").on("click", function() {
 
-    // test for books or book again avoid user error else they meant DVDs and do math
-    if (type === 'BOOKS' || type === 'BOOK')
-        document.writeln(.25 * numResponse.toFixed(2));
-    else
-        document.writeln(.50 * numResponse.toFixed(2));
-}
+            var numberToppings = parseInt($('#numberToppings').val());
+            var pizzaCost = parseFloat(numberToppings)*1.25+15.00;
+            var numberCoworkers = parseInt($('#numberCoworkers').val());
+            $("#share").empty().append("$ "+ (pizzaCost/numberCoworkers).toFixed(2));
+            $("#submitPizza").fadeOut(3000);
+            $("#submitPizza").fadeIn(3000);
+        })
+    });
 
-function pizza() {
-    // ask topping and parseInt and coWorkers and parseInt
-    var tops = prompt("Have many toppings would you like? ");
-    var toppings = parseInt(tops);
-    var coWorkers = prompt("How many coworkers eating today?  ");
-    var shareNumber = parseInt(coWorkers);
-    // display with the math
-    document.writeln("<br>" + "For their share of pizza each co-worker is to pay $" +
-        (toppings * 1.25 + 15.00 / shareNumber.toFixed(2)));
 
-}
+
+
+
+
